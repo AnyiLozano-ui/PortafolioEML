@@ -1,0 +1,22 @@
+* {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+body {
+	background-color: #e3e3e3;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+}
+/* 
+.abs {
+    position: relative;
+}
+
+.back {
+    background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+} */

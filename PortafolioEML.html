@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>PortafolioEML</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		<link rel="stylesheet" href="./css/styles.css" />
+		<!-- Scripts -->
+		<script
+			type="text/javascript"
+			src="https://eml.com.co/RevistaDigital_GuiaParaElCuidado_DeLa_Piel/js/jquery-3.2.1.min.js"></script>
+		<script src="https://eml.com.co/RevistaDigital_GuiaParaElCuidado_DeLa_Piel/js/turnjs.min.js"></script>
+		<!-- Styles -->
+		<style>
+			body {
+				background: #000;
+				margin: 0;
+				width: 100vw;
+				display: flex;
+				justify-content: center;
+			}
+
+			#magazine {
+				height: 100vh;
+			}
+
+			#magazine .turn-page {
+				background-color: #ccc;
+				background-size: contain;
+			}
+
+			.page-wrapper {
+				width: calc((100vh * 2250) / 4000) !important;
+				-webkit-perspective: 2000px;
+				-moz-perspective: 2000px;
+				-ms-perspective: 2000px;
+				perspective: 2000px;
+			}
+
+			.page {
+				background-size: calc((100vh * 2250) / 4000), 99vh;
+				filter: none !important;
+				pointer-events: none !important;
+				image-rendering: -webkit-optimize-contrast !important;
+				width: calc((100vh * 2250) / 4000) !important;
+				height: 100vh !important;
+			}
+
+			.single-width {
+				width: calc(((100vh * 2250) / 4000)) !important;
+				margin-left: 0 !important;
+			}
+
+			.double-width {
+				width: calc(((100vh * 2250) / 4000) * 2) !important;
+			}
+
+			@media (max-width: 500px) {
+				.page-wrapper {
+					width: 100vw !important;
+					height: calc((100vw * 4000) / 2250) !important;
+					transform: translateY(10%);
+				}
+
+				.page-wrapper div[style*='height: 414px'] {
+					height: calc((100vw * 4000) / 2250) !important;
+				}
+
+				.page {
+					background-size: 100vw;
+					width: 100vw !important;
+					height: calc((100vw * 4000) / 2250) !important;
+				}
+
+				.single-width {
+					width: 100vw !important;
+					margin-left: 0 !important;
+				}
+
+				.double-width {
+					height: calc((100vw * 4000) / 2250 * 2) !important;
+				}
+
+				#magazine .turn-page-corner {
+					pointer-events: none !important;
+				}
+			}
+
+			@media (max-width: 400px) {
+				.page-wrapper {
+					transform: translateY(0%);
+				}
+			}
+
+			.boton {
+				position: absolute;
+				width: 10%;
+				height: 4%;
+				top: 94%;
+				left: 11%;
+				z-index: 1;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.boton1 {
+				position: absolute;
+				width: 5%;
+				height: 3%;
+				top: 94.7%;
+				left: 18.3%;
+				z-index: 1;
+				cursor: pointer;
+				pointer-events: auto !important;
+				background: green;
+				border-radius: 70px;
+			}
+			.boton2 {
+				position: absolute;
+				width: 5%;
+				height: 3%;
+				top: 94.6%;
+				left: 11.8%;
+				z-index: 1;
+				cursor: pointer;
+				border-radius: 70px;
+				background: red;
+				pointer-events: auto !important;
+			}
+
+			.mano {
+				position: absolute;
+				width: 100%;
+				/* height: 5%; */
+				top: 44.7%;
+				left: 0%;
+			}
+			.mano img {
+				width: 100%;
+				height: 100%;
+			}
+
+			/* bolas azules */
+			.ola1 {
+				position: absolute;
+				width: 24.8%;
+				top: 40.4%;
+				left: 37.6%;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.ola1 img {
+				width: 100%;
+				height: 100%;
+				animation: flotarSuave 3s ease-in-out infinite;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+
+			.ola2 {
+				position: absolute;
+				width: 24.8%;
+				top: 46.9%;
+				left: 60.6%;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.ola2 img {
+				width: 100%;
+				height: 100%;
+				animation: flotarSuave 2s ease-in-out infinite;
+			}
+
+			.ola3 {
+				position: absolute;
+				width: 24.8%;
+				top: 72.6%;
+				left: 50.1%;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.ola3 img {
+				width: 100%;
+				height: 100%;
+				animation: flotarSuave 3s ease-in-out infinite;
+			}
+
+			.ola4 {
+				position: absolute;
+				width: 24.8%;
+				top: 60.6%;
+				left: 66.1%;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.ola4 img {
+				width: 100%;
+				height: 100%;
+				animation: flotarSuave 2s ease-in-out infinite;
+			}
+
+			.ola5 {
+				position: absolute;
+				width: 24.8%;
+				top: 71.5%;
+				left: 24.9%;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.ola5 img {
+				width: 100%;
+				height: 100%;
+				animation: flotarSuave 3s ease-in-out infinite;
+			}
+
+			.ola6 {
+				position: absolute;
+				width: 24.8%;
+				top: 60.7%;
+				left: 9.3%;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.ola6 img {
+				width: 100%;
+				height: 100%;
+				animation: flotarSuave 2s ease-in-out infinite;
+			}
+
+			.ola7 {
+				position: absolute;
+				width: 24.8%;
+				top: 46.8%;
+				left: 14.7%;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.ola7 img {
+				width: 100%;
+				height: 100%;
+				animation: flotarSuave 3s ease-in-out infinite;
+			}
+
+			@keyframes flotarSuave {
+				0% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-10px);
+				}
+				100% {
+					transform: translateY(0);
+				}
+			}
+			/* bolas azul */
+			.amrillo1 {
+				position: absolute;
+				width: 21.8%;
+				top: 41%;
+				left: 39.5%;
+			}
+			.amrillo1 img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.amrillo2 {
+				position: absolute;
+				width: 21.8%;
+				top: 47.5%;
+				left: 62.5%;
+			}
+			.amrillo2 img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.amrillo3 {
+				position: absolute;
+				width: 21.8%;
+				top: 61.3%;
+				left: 67.4%;
+			}
+			.amrillo3 img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.amrillo4 {
+				position: absolute;
+				width: 21.8%;
+				top: 72.2%;
+				left: 51.9%;
+			}
+			.amrillo4 img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.amrillo5 {
+				position: absolute;
+				width: 21.8%;
+				left: 26.7%;
+				top: 72.1%;
+			}
+			.amrillo5 img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.amrillo6 {
+				position: absolute;
+				width: 21.8%;
+				left: 12.2%;
+				top: 61.3%;
+			}
+			.amrillo6 img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.amrillo7 {
+				position: absolute;
+				width: 21.8%;
+				left: 16.5%;
+				top: 47.4%;
+			}
+			.amrillo7 img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.adelante {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 18.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 10.8%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante1 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 21.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras1 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 14.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante2 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 22.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras2 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 14.8%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante3 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 23%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras3 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 15.8%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante4 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 23%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras4 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 15.8%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante5 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 20.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras5 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 94%;
+				left: 13.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante6 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 18.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras6 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 11.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante7 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 17.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras7 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 10.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante8 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 17.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras8 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 10.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante9 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 17.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras9 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 10.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante10 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 17.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras10 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 10.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante11 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 16.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras11 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 9.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante12 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 16.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras12 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 9.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante13 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 16.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras13 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 9.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante14 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 16.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras14 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 9.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante15 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 14.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras15 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 7.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante16 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 16.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras16 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 9.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante17 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 16.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras17 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 9.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante18 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 16.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras18 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 9.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante19 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 16.3%;
+				z-index: 10;
+				cursor: pointer;
+				pointer-events: auto !important;
+			}
+			.atras19 {
+				position: absolute;
+				width: 6%;
+				height: 4%;
+				top: 93%;
+				left: 9.1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.bombillo {
+				position: absolute;
+				width: 144.3%;
+				top: 65.2%;
+				left: -14.5%;
+				animation: flotarEnergetico 5s ease-in-out infinite;
+			}
+
+			.bombillo img {
+				width: 100%;
+				height: 100%;
+				animation: flotarConEnergia 4s ease-in-out infinite;
+			}
+
+			@keyframes flotarConEnergia {
+				0% {
+					transform: translateY(0) scale(1) rotate(0deg);
+					filter: drop-shadow(0 0 5px rgba(255, 255, 100, 0.3));
+				}
+				25% {
+					transform: translateY(-5px) scale(1.03) rotate(-1deg);
+					filter: drop-shadow(0 0 20px rgba(255, 255, 100, 0.7));
+				}
+				50% {
+					transform: translateY(5px) scale(0.98) rotate(1deg);
+					filter: drop-shadow(0 0 30px rgba(255, 255, 100, 0.9));
+				}
+				75% {
+					transform: translateY(-3px) scale(1.02) rotate(-0.5deg);
+					filter: drop-shadow(0 0 15px rgba(255, 255, 100, 0.6));
+				}
+				100% {
+					transform: translateY(0) scale(1) rotate(0deg);
+					filter: drop-shadow(0 0 5px rgba(255, 255, 100, 0.3));
+				}
+			}
+
+			.bloqueo-esquinas {
+				background-color: red;
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 100px;
+				height: 100dvb;
+				z-index: 1000;
+			}
+
+			.modal {
+				display: none;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+			}
+
+			.modal img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.modal .modal-adelante {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 2%;
+				left: 20%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.modal .modal-atras {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 2%;
+				left: 12.4%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.modal .modal-home3 {
+				position: absolute;
+				width: 7%;
+				height: 4.4%;
+				top: 93.8%;
+				left: 3.9%;
+				pointer-events: auto !important;
+				cursor: pointer;
+				z-index: 10;
+			}
+
+			.home {
+				position: absolute;
+				width: 7%;
+				height: 4.4%;
+				top: 95.2%;
+				left: 48.9%;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.home img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.home1 {
+				position: absolute;
+				width: 7%;
+				height: 4.4%;
+				top: 95.2%;
+				left: 48.9%;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.home1 img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.home2 {
+				position: absolute;
+				width: 7%;
+				height: 4.4%;
+				top: 95.2%;
+				right: 2%;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.home2 img {
+				width: 100%;
+				height: 100%;
+			}
+
+			.mensaje {
+				position: absolute;
+				width: 28.3%;
+				height: 16.5%;
+				top: 55.3%;
+				right: 35.9%;
+				pointer-events: auto !important;
+				cursor: pointer;
+				border-radius: 80px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="magazine" class="single-width">
+			<!-- portada -->
+			<div style="background-image: url(images/portada.jpg)">
+				<div class="cohete">
+					<img src="./images/cohete.png" alt="" />
+				</div>
+
+				<div class="atomo">
+					<img src="./images/atomos.png" alt="Átomo animado" />
+				</div>
+
+				<div class="fondogif">
+					<img src="./images/fondopc.gif" alt="" />
+				</div>
+
+				<div class="tablet-vibrating">
+					<img src="./images/tablet.png" alt="Tablet vibrando" />
+				</div>
+
+				<div class="carta-animada">
+					<img src="./images/carta.png" alt="Carta animada" />
+				</div>
+
+				<div class="mensaje-con-medalla">
+					<img
+						src="./images/message.png"
+						alt="Mensaje con medalla animada" />
+				</div>
+
+				<div class="eml">
+					<img src="./images/eml.png" alt="EML animado" />
+				</div>
+
+				<!-- emogis -->
+				<div class="emogis">
+					<img src="./images/feliz1.webp" alt="Emogis animados" />
+				</div>
+				<div class="emogis1">
+					<img src="./images/heart.gif" alt="Emogis animados" />
+				</div>
+				<div class="emogis2">
+					<img src="./images/reir.gif" alt="Emogis animados" />
+				</div>
+				<div class="emogis3">
+					<img src="./images/sorprendido.gif" alt="Emogis animados" />
+				</div>
+				<div class="emogis4">
+					<img src="./images/guino.gif" alt="Emogis animados" />
+				</div>
+				<div class="corazon">
+					<img src="./images/corazonsito.png" alt="corazon" />
+				</div>
+				<div class="corazon1">
+					<img src="./images/corazonsito.png" alt="corazon" />
+				</div>
+				<div class="corazon2">
+					<img src="./images/corazonsito.png" alt="corazon" />
+				</div>
+
+				<div class="manito">
+					<img src="./images/megusta.png" alt="corazon" />
+				</div>
+				<div class="manito1">
+					<img src="./images/megusta.png" alt="corazon" />
+				</div>
+				<div class="user">
+					<img src="./images/user.png" alt="corazon" />
+				</div>
+				<div class="user1">
+					<img src="./images/user.png" alt="corazon" />
+				</div>
+				<div class="mesage">
+					<img src="./images/message1.png" alt="corazon" />
+				</div>
+				<div class="corawhite">
+					<img src="./images/corawhite.gif" alt="corazon" />
+				</div>
+
+				<div class="curva">
+					<img src="./images/curva.png" alt="" />
+				</div>
+			</div>
+
+			<!-- portada 1 -->
+			<div style="background-image: url(images/image1.jpg)">
+				<div class="mexico pais">
+					<img src="./images/mexico.png" alt="" />
+				</div>
+				<div class="costa pais">
+					<img src="./images/costa.png" alt="" />
+				</div>
+				<div class="panama pais">
+					<img src="./images/panama.png" alt="" />
+				</div>
+				<div class="ecuador pais">
+					<img src="./images/ecuador.png" alt="" />
+				</div>
+				<div class="colombia pais">
+					<img src="./images/colombia.png" alt="" />
+				</div>
+				<div class="peru pais">
+					<img src="./images/peru.png" alt="" />
+				</div>
+				<div class="brasil pais">
+					<img src="./images/brasil.png" alt="" />
+				</div>
+				<div class="chile pais">
+					<img src="./images/chile.png" alt="" />
+				</div>
+				<div class="nicaragua pais">
+					<img src="./images/nica.png" alt="" />
+				</div>
+				<div class="francia pais">
+					<img src="./images/francia.png" alt="" />
+				</div>
+				<div class="emiratos pais">
+					<img src="./images/emiratos.png" alt="" />
+				</div>
+				<div class="mapa">
+					<img src="./images/mapa.png" alt="" />
+				</div>
+				<div class="loader-circle">
+					<img src="./images/loader-circle.png" alt="" />
+				</div>
+				<div class="treessenta">
+					<img src="./images/treessenta.png" alt="" />
+				</div>
+				<div class="raya">
+					<img src="./images/raya1.png" alt="" />
+				</div>
+				<div class="raya1">
+					<img src="./images/raya2.png" alt="" />
+				</div>
+				<div class="raya2">
+					<img src="./images/raya3.png" alt="" />
+				</div>
+				<div class="raya3">
+					<img src="./images/raya4.png" alt="" />
+				</div>
+				<div class="raya4">
+					<img src="./images/raya5.png" alt="" />
+				</div>
+				<div class="raya5">
+					<img src="./images/raya6.png" alt="" />
+				</div>
+			</div>
+
+			<!-- portada 2 -->
+			<div style="background-image: url(images/image2.jpg)">
+				<div class="curva1">
+					<img src="./images/raya1.png" alt="" />
+				</div>
+				<div class="curva2">
+					<img src="./images/campaña.png" alt="" />
+				</div>
+				<div class="curva3">
+					<img src="./images/raya6.png" alt="" />
+				</div>
+				<div class="curva4">
+					<img src="./images/contenido.png" alt="" />
+				</div>
+				<div class="iconoxora">
+					<img src="./images/megustaicon.webp" alt="" />
+				</div>
+				<div class="iconoxora1">
+					<img src="./images/megustaicon.webp" alt="" />
+				</div>
+				<div class="iconoxora2">
+					<img src="./images/megustaicon.webp" alt="" />
+				</div>
+				<div class="iconoxora3">
+					<img src="./images/megustaicon.webp" alt="" />
+				</div>
+				<div class="iconoxora4">
+					<img src="./images/megustaicon.webp" alt="" />
+				</div>
+				<div class="iconoxora5">
+					<img src="./images/megustaicon.webp" alt="" />
+				</div>
+				<div class="iconoxora6">
+					<img src="./images/megustaicon.webp" alt="" />
+				</div>
+				<div class="imagen-con-borde">
+					<div class="halo-naranja"></div>
+					<img src="./images/circulo.png" alt="Imagen" />
+				</div>
+				<div class="numerotre">
+					<img src="./images/tresesenta.png" alt="Imagen" />
+				</div>
+
+				<div class="fondocam flotante">
+					<img src="./images/fondocam.png" alt="" />
+				</div>
+
+				<div class="hoja1">
+					<img src="./images/hoja.png" alt="" />
+				</div>
+			</div>
+
+			<!-- portada 3 -->
+			<div style="background-image: url(images/portada\ 5.jpg)">
+				<div class="naranja">
+					<img src="./images/audiovisual.png" alt="" />
+				</div>
+				<div class="camara">
+					<img src="./images/tecno.png" alt="persona cámara" />
+				</div>
+				<div class="humo" aria-hidden="true">
+					<img
+						src="./images/humo.webp"
+						alt=""
+						class="puff"
+						style="--delay: 0s; --dur: 12s; --dx: 8px; --s: 0.64" />
+					<img
+						src="./images/humo.webp"
+						alt=""
+						class="puff"
+						style="
+							--delay: 1.6s;
+							--dur: 13s;
+							--dx: 6px;
+							--s: 0.7;
+						" />
+					<img
+						src="./images/humo.webp"
+						alt=""
+						class="puff"
+						style="
+							--delay: 3.2s;
+							--dur: 14s;
+							--dx: 5px;
+							--s: 0.78;
+						" />
+				</div>
+				<div class="camara1">
+					<img src="./images/camara1.png" alt="persona cámara" />
+
+					<div class="rec"><span class="dot"></span>REC</div>
+					<div class="smoke">
+						<div class="puff p1"></div>
+						<div class="puff p2"></div>
+						<div class="puff p3"></div>
+					</div>
+				</div>
+
+				<div class="fondogif1">
+					<img src="./images/portati.png" alt="Portátil" />
+					<div class="shine"></div>
+				</div>
+
+				<div class="fondogif2">
+					<img src="./images/pc.png" alt="Educación Online" />
+				</div>
+				<div class="tuercas">
+					<img src="./images/tuercas.png" alt="Educación Online" />
+				</div>
+			</div>
+
+			<!-- portada 4 -->
+			<div style="background-image: url(images/portada6.jpg)">
+				<div class="marke">
+					<img src="./images/marketin.png" alt="" />
+				</div>
+				<div class="doblez3d">
+					<img src="./images/digital.png" alt="Marketing Digital">
+				  </div>
+				<div class="megust">
+					<img src="./images/megustaicon.webp" alt="" />
+				</div>
+				<div class="coherte2">
+					<span class="flash" aria-hidden="true"></span>
+					<img src="./images/cohete1.png" alt="Cohete" />
+				</div>
+				<div class="xora">
+					<img src="./images/corazon.gif" alt="" />
+				</div>
+				<div class="liena">
+					<img src="./images/likes.png" alt="" />
+				</div>
+				<div class="chica">
+					<img src="./images/chica.png" alt="" />
+				</div>
+				<div class="curu">
+					<img src="./images/curu.png" alt="" />
+				</div>
+				<div class="fondocirc"></div>
+			</div>
+
+			<!-- portada 5 -->
+			<div style="background-image: url(images/imagen21.jpg)">
+				<div class="texto1">
+					<h1 class="type">¿Estás listo para construir <br> una comunicación <br>
+						saludable que hará feliz a <br> tu marca? </h1>
+				  </div>
+			</div>
+		</div>
+		<audio
+			id="sonido-boton"
+			src="./images/siguiente-pagina-139418.mp3"></audio>
+
+		<script src="./js/magazine.js"></script>
+		<script>
+			// Calcula el número de caracteres reales para que los "steps" se ajusten bien
+			const el = document.getElementById('headline');
+			const chars = el.textContent.replace(/\s+/g,' ').trim().length;
+			el.style.setProperty('--chars', chars);
+		  </script>
+	</body>
+</html>
+
