@@ -97,6 +97,18 @@ const handleEvents = () => {
 }
 
 $(document).ready(() => {
+
+	$(window).on('load', function () {
+		setTimeout(function () {
+			$('#loader').css('opacity', 0)
+			$('#magazine').css('opacity', 1)
+
+			setTimeout(function () {
+				$('#loader').css('display', 'none')
+			}, 1000)
+		}, 2000)
+	})
+
 	handleInitTurnjs()
 	handleEvents()
 	// Pagina 1
@@ -108,68 +120,33 @@ $(document).ready(() => {
 	let modalOpenend = ''
 
 	$('#magazine').bind('turned', (e, page) => {
-		if (page === 3) {
-			handleAddClickButton('.ola1', () => {
-				dataCounter = 0
-				$('#sonido-boton')[0].play()
-				modalOpenend = 'modal-1'
-				$('.modal img').attr('src', dataImages[modalOpenend][0].image)
-				$('.modal').fadeIn()
-				$('#magazine').turn('disable', true)
+		if (page === 6) {
+			const lines = [...document.querySelectorAll('.type .line')]
+			const speed = 55 // ms por carácter (coincide con --speed)
+			let accDelay = 0
+
+			lines.forEach((el) => {
+				const chars = el.textContent.replace(/\s+/g, ' ').trim().length
+				el.style.setProperty('--chars', chars)
+				el.style.setProperty('--delay', accDelay + 'ms')
+
+				const duration = chars * speed
+				accDelay += duration + 350 // pausa entre líneas
+
+				// Activa animación sólo después de setear variables
+				requestAnimationFrame(() => {
+					if (!el.classList.contains('run')) {
+						el.classList.add('run')
+					}
+				})
 			})
 
-			handleAddClickButton('.ola2', () => {
-				dataCounter = 0
-				$('#sonido-boton')[0].play()
-				modalOpenend = 'modal-2'
-				$('.modal img').attr('src', dataImages[modalOpenend][0].image)
-				$('.modal').fadeIn()
-				$('#magazine').turn('disable', true)
+			$('.home5').on('click', () => {
+				$('#magazine').turn('page', 1)
 			})
-
-			handleAddClickButton('.ola3', () => {
-				dataCounter = 0
-				$('#sonido-boton')[0].play()
-				modalOpenend = 'modal-3'
-				$('.modal img').attr('src', dataImages[modalOpenend][0].image)
-				$('.modal').fadeIn()
-				$('#magazine').turn('disable', true)
-			})
-
-			handleAddClickButton('.ola4', () => {
-				dataCounter = 0
-				$('#sonido-boton')[0].play()
-				modalOpenend = 'modal-4'
-				$('.modal img').attr('src', dataImages[modalOpenend][0].image)
-				$('.modal').fadeIn()
-				$('#magazine').turn('disable', true)
-			})
-
-			handleAddClickButton('.ola5', () => {
-				dataCounter = 0
-				$('#sonido-boton')[0].play()
-				modalOpenend = 'modal-5'
-				$('.modal img').attr('src', dataImages[modalOpenend][0].image)
-				$('.modal').fadeIn()
-				$('#magazine').turn('disable', true)
-			})
-
-			handleAddClickButton('.ola6', () => {
-				dataCounter = 0
-				$('#sonido-boton')[0].play()
-				modalOpenend = 'modal-6'
-				$('.modal img').attr('src', dataImages[modalOpenend][0].image)
-				$('.modal').fadeIn()
-				$('#magazine').turn('disable', true)
-			})
-
-			handleAddClickButton('.ola7', () => {
-				dataCounter = 0
-				$('#sonido-boton')[0].play()
-				modalOpenend = 'modal-7'
-				$('.modal img').attr('src', dataImages[modalOpenend][0].image)
-				$('.modal').fadeIn()
-				$('#magazine').turn('disable', true)
+		
+			$('.atras5').on('click', () => {
+				$('#magazine').turn('previous')
 			})
 		}
 	})
@@ -178,54 +155,55 @@ $(document).ready(() => {
 		$('#sonido-boton')[0].play()
 	})
 
-	$('.home').on('click', () => {
-		$('#magazine').turn('page', 3)
+	$('.home1').on('click', () => {
+		$('#magazine').turn('page', 1)
 	})
 
-	$('.home1').on('click', () => {
-		$('#magazine').turn('page', 3)
+	$('.atras1').on('click', () => {
+		$('#magazine').turn('previous')
+	})
+
+	$('.adelante1').on('click', () => {
+		$('#magazine').turn('next')
 	})
 
 	$('.home2').on('click', () => {
-		$('#magazine').turn('page', 3)
+		$('#magazine').turn('page', 1)
 	})
 
-	$('.modal-home3').on('click', () => {
-		$('.modal').fadeOut()
-		$('#magazine').turn('disable', false)
+	$('.atras2').on('click', () => {
+		$('#magazine').turn('previous')
 	})
 
-	$('.mensaje').on('click', () => {
-		$('#magazine').turn('page', 4)
+	$('.adelante2').on('click', () => {
+		$('#magazine').turn('next')
 	})
 
-	$('.modal-adelante').on('click', () => {
-		if (dataCounter < dataImages[modalOpenend].length - 1) {
-			$('.modal img').attr(
-				'src',
-				dataImages[modalOpenend][dataCounter + 1].image
-			)
-			$('#sonido-boton')[0].play()
-			dataCounter++
-		} else {
-			dataCounter = 0
-			$('.modal').fadeOut()
-			$('#magazine').turn('disable', false)
-		}
+	$('.home3').on('click', () => {
+		$('#magazine').turn('page', 1)
 	})
 
-	$('.modal-atras').on('click', () => {
-		if (dataCounter - 1 > -1) {
-			$('.modal img').attr(
-				'src',
-				dataImages[modalOpenend][dataCounter - 1].image
-			)
-			$('#sonido-boton')[0].play()
-			dataCounter--
-		} else {
-			dataCounter = 0
-			$('.modal').fadeOut()
-			$('#magazine').turn('disable', false)
-		}
+	$('.atras3').on('click', () => {
+		$('#magazine').turn('previous')
 	})
+
+	$('.adelante3').on('click', () => {
+		$('#magazine').turn('next')
+	})
+
+	$('.home4').on('click', () => {
+		$('#magazine').turn('page', 1)
+	})
+
+	$('.atras4').on('click', () => {
+		$('#magazine').turn('previous')
+	})
+
+	$('.adelante4').on('click', () => {
+		$('#magazine').turn('next')
+	})
+
+	
+
+	//loader
 })

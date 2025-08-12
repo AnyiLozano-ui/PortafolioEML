@@ -757,7 +757,7 @@
 	height: auto;
 	background: url('./images/punticos@4x-8.png') no-repeat center center;
 	background-size: contain;
-	animation: rotateDots 4s linear infinite;
+	animation: rotateDots 6s linear infinite;
 }
 
 @keyframes rotateDots {
@@ -1346,7 +1346,6 @@
 	top: 57.8%;
 	left: 30.8%;
 	z-index: 3;
-	transform: rotate(20deg);
 	animation: caerConGiro 6s ease-out forwards infinite;
 }
 
@@ -1841,7 +1840,7 @@
 
 /* Sombra 3D separada (elíptica) */
 .marke::after {
-	content: "";
+	content: '';
 	position: absolute;
 	left: 50%;
 	bottom: -2%;
@@ -1849,12 +1848,14 @@
 	width: 62%;
 	height: 14%;
 	/* elipse suave que se difumina hacia los bordes */
-	background: radial-gradient(ellipse at center,
-		rgba(0,0,0,0.28) 0%,
-		rgba(0,0,0,0.18) 45%,
-		rgba(0,0,0,0) 70%);
+	background: radial-gradient(
+		ellipse at center,
+		rgba(0, 0, 0, 0.28) 0%,
+		rgba(0, 0, 0, 0.18) 45%,
+		rgba(0, 0, 0, 0) 70%
+	);
 	filter: blur(2px);
-	opacity: .6;
+	opacity: 0.6;
 	pointer-events: none;
 	will-change: transform, opacity;
 	animation: sombra 6.5s ease-in-out infinite;
@@ -1862,32 +1863,56 @@
 
 /* Balanceo del elemento (solo movimiento/rotación) */
 @keyframes hamaca {
-	0%   { transform: rotateZ(-2.2deg) rotateX(1deg) translateY(0); }
-	25%  { transform: rotateZ(0.8deg)  rotateX(-0.5deg) translateY(-3px); }
-	50%  { transform: rotateZ(2.2deg)  rotateX(1deg) translateY(2px); }
-	75%  { transform: rotateZ(-0.8deg) rotateX(-0.5deg) translateY(-3px); }
-	100% { transform: rotateZ(-2.2deg) rotateX(1deg) translateY(0); }
+	0% {
+		transform: rotateZ(-2.2deg) rotateX(1deg) translateY(0);
+	}
+	25% {
+		transform: rotateZ(0.8deg) rotateX(-0.5deg) translateY(-3px);
+	}
+	50% {
+		transform: rotateZ(2.2deg) rotateX(1deg) translateY(2px);
+	}
+	75% {
+		transform: rotateZ(-0.8deg) rotateX(-0.5deg) translateY(-3px);
+	}
+	100% {
+		transform: rotateZ(-2.2deg) rotateX(1deg) translateY(0);
+	}
 }
 
 /* Sombra que “respira” con el balanceo */
 @keyframes sombra {
-	0%   { transform: translateX(-50%) scale(0.95, 0.9);  opacity: .55; }
-	25%  { transform: translateX(-50%) scale(1.00, 0.95); opacity: .60; }
-	50%  { transform: translateX(-50%) scale(1.05, 1.0);  opacity: .65; }
-	75%  { transform: translateX(-50%) scale(1.00, 0.95); opacity: .60; }
-	100% { transform: translateX(-50%) scale(0.95, 0.9);  opacity: .55; }
+	0% {
+		transform: translateX(-50%) scale(0.95, 0.9);
+		opacity: 0.55;
+	}
+	25% {
+		transform: translateX(-50%) scale(1, 0.95);
+		opacity: 0.6;
+	}
+	50% {
+		transform: translateX(-50%) scale(1.05, 1);
+		opacity: 0.65;
+	}
+	75% {
+		transform: translateX(-50%) scale(1, 0.95);
+		opacity: 0.6;
+	}
+	100% {
+		transform: translateX(-50%) scale(0.95, 0.9);
+		opacity: 0.55;
+	}
 }
 
 /* Afinado en móvil: sombra un pelín más suave */
 @media (max-width: 768px) {
-	.marke::after{
+	.marke::after {
 		width: 66%;
 		height: 16%;
 		filter: blur(3px);
-		opacity: .5;
+		opacity: 0.5;
 	}
 }
-
 
 /* Respeta usuarios que prefieren menos movimiento */
 @media (prefers-reduced-motion: reduce) {
@@ -1939,7 +1964,7 @@
 	width: 100%;
 	height: 100%;
 	display: block;
-	animation: liftoff 4s ease-in-out infinite;
+	animation: liftoff 6s ease-in-out infinite;
 }
 
 /* Luz que sale al mismo tiempo */
@@ -1959,7 +1984,7 @@
 	opacity: 0;
 	mix-blend-mode: screen;
 	pointer-events: none;
-	animation: flashGlow 4s ease-out infinite;
+	animation: flashGlow 6s ease-out infinite;
 }
 
 /* --- Animaciones --- */
@@ -1992,18 +2017,6 @@
 		transform: translateX(-50%) scale(1.6);
 	}
 }
-
-/* .marke1 {
-	position: absolute;
-	width: 59.9%;
-    top: 44.3%;
-    left: 50.3%;           
-  }
-  
-  .marke1 img{
-	width: 100%;
-	height: 100%;
-  } */
 
 .doblez3d {
 	position: absolute;
@@ -2075,11 +2088,10 @@
 .liena {
 	position: absolute;
 	width: 45.6%;
-    top: 54%;
-    left: 8.5%;
-    z-index: 2;
+	top: 54%;
+	left: 8.5%;
+	z-index: 2;
 	animation: volar 6s ease-out forwards infinite;
-
 }
 
 .liena img {
@@ -2088,9 +2100,17 @@
 }
 
 @keyframes volar {
-	0% { transform: scale(0.7) rotate(-20deg); opacity: 0; }
-	70% { transform: scale(1.05) rotate(10deg); opacity: 1; }
-	100% { transform: scale(1) rotate(0deg); }
+	0% {
+		transform: scale(0.7) rotate(-20deg);
+		opacity: 0;
+	}
+	70% {
+		transform: scale(1.05) rotate(10deg);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1) rotate(0deg);
+	}
 }
 
 .chica {
@@ -2108,7 +2128,6 @@
 	height: 100%;
 	display: block;
 }
-
 
 @keyframes flotarArribaAbajo {
 	0% {
@@ -2128,7 +2147,6 @@
 	top: 72.7%;
 	left: 46.4%;
 	z-index: 2;
-
 }
 
 .curu img {
@@ -2136,52 +2154,268 @@
 	height: 100%;
 }
 
-.fondocirc {
-	position: absolute;
-    width: 50.9%;
-    top: 53.2%;
-    left: 5.6%;
-    background-color: #fdf4e9;
-    z-index: 1;
-    height: 28.7%;
-    border-radius: 200px;
-}
-
-/* Custom */
-
+/* Posición del bloque */
 .texto1 {
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	top: 15.8%;
+	left: 21.1%;
+	font-family: 'Roboto', sans-serif;
 }
 
-h1 {
-	color: #dbd56e;
-	background: -webkit-linear-gradient(25deg, #eee, #333);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	font-size: 3rem;
-	font-weight: 500;
+/* contenedor */
+.type {
+	font-size: clamp(22px, 2.4vw, 48px);
+	font-weight: 600;
+	line-height: 1.15;
+	text-align: center;
+}
+
+@media(min-width: 500px) and (max-width: 1024px) {
+	.type {
+		font-size: clamp(22px, 3.5vw, 48px);
+	}
+}
+
+@media(min-width: 1025px) and (max-width: 1366px) {
+	.type {
+		font-size: clamp(18px, 0.5vw, 48px);
+	}
+}
+
+/* una línea que se escribe como máquina */
+.line {
+	display: block;
 	overflow: hidden;
 	white-space: nowrap;
-	border-right: 2px solid;
-	animation: type 1.5s steps(90) 1.5s 1 normal both, cursor 1s step-end infinite;
-	position: relative;
-  }
-  
-  @keyframes type {
+	border-right: 0.12em solid currentColor; /* cursor */
+	width: 0; /* arranca oculta */
+	/* velocidad por carácter y delay por línea (los setea JS) */
+	--speed: 55ms; /* tiempo por carácter */
+	--delay: 0ms; /* se calcula en JS */
+	--chars: 0; /* se calcula en JS */
+	animation: none;
+}
+.line.run {
+	/* animation:
+	  typing calc(var(--chars) * var(--speed)) steps(var(--chars)) var(--delay) forwards,
+	  blink 900ms step-end infinite var(--delay); */
+	animation: typing calc(var(--chars) * var(--speed)) steps(var(--chars))
+		var(--delay) forwards;
+	animation-fill-mode: forwards;
+}
+
+.line.run::after {
+	content: '';
+	display: inline-block;
+	width: 0.12em;
+	background-color: currentColor;
+	animation: blink 900ms step-end infinite;
+}
+
+/* Colores por línea */
+.line:nth-child(1) {
+	color: #2f4d99;
+} /* azul 1 */
+.line:nth-child(2) {
+	color: #f4a01f;
+} /* naranja */
+.line:nth-child(3) {
+	color: #2f4d99;
+} /* azul 1 */
+.line:nth-child(4) {
+	color: #f4a01f;
+} /* naranja */
+
+/* Animaciones */
+@keyframes typing {
 	from {
-	  width: 0;
+		width: 0;
 	}
-  
 	to {
-	  width: 100%;
+		width: 100%;
 	}
-  }
-  
-  @keyframes cursor {
+}
+@keyframes blink {
 	50% {
-	  border-color: transparent;
+		border-color: transparent;
 	}
-  }
-  
+}
+
+/* Accesibilidad: sin animación si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+	.line {
+		animation: none;
+		width: auto;
+		border-right: none;
+	}
+}
+
+.cruva {
+	position: absolute;
+	width: 18%;
+	top: 30.7%;
+	left: 82.3%;
+	z-index: 2;
+	overflow: hidden;
+}
+
+.cruva img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	animation: waveMove 3s ease-in-out infinite;
+	filter: drop-shadow(0px 0px 8px rgba(255, 165, 0, 0.4));
+}
+
+/* Brillo que recorre la curva */
+.curva::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		120deg,
+		transparent 0%,
+		rgba(255, 255, 255, 0.3) 50%,
+		transparent 100%
+	);
+	animation: shine 3.5s ease-in-out infinite;
+}
+
+/* Movimiento ondulante */
+@keyframes waveMove {
+	0%,
+	100% {
+		transform: translateY(0px) rotate(0.2deg);
+	}
+	50% {
+		transform: translateY(-6px) rotate(-0.2deg);
+	}
+}
+
+/* Recorrido del brillo */
+@keyframes shine {
+	0% {
+		left: -100%;
+	}
+	50% {
+		left: 100%;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+.cruva1 {
+	position: absolute;
+	width: 54%;
+	top: -9.3%;
+	left: -17.7%;
+	z-index: 2;
+}
+
+.cruva1 img {
+	width: 100%;
+	height: 100%;
+}
+
+#loader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 100%;
+	width: 100%;
+	background-color: #3458a3;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Loader container */
+.loader {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	overflow: visible;
+}
+
+/* Central circle with logo */
+.central-circle {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	background: #fff;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	padding: 10px;
+	box-shadow: 0 0 20px rgb(225 157 49);
+	border: 2px solid #3458a3;
+}
+
+.central-circle img {
+	width: 100%; /* ✅ que ocupe todo el círculo */
+	height: 100%;
+	object-fit: contain; /* ✅ se adapta sin deformar */
+	border-radius: 50%;
+}
+
+/* Small orbiting circle */
+.orbiting-circle {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background: #f9a12f; /* color de la bola */
+	border-radius: 50%;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	animation: orbit 2s linear infinite;
+	z-index: 1;
+}
+
+/* Pulse ring effect */
+.pulse-ring {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #f9a12f; /* color del aro */
+	border-radius: 50%;
+	opacity: 0;
+	animation: pulse 2s ease-out infinite;
+}
+
+/* Animations */
+@keyframes orbit {
+	0% {
+		transform: translateX(-50%) rotate(0deg) translateY(60px) rotate(0deg);
+	}
+	100% {
+		transform: translateX(-50%) rotate(360deg) translateY(60px)
+			rotate(-360deg);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.8);
+		opacity: 0.7;
+	}
+	70% {
+		transform: scale(1.2);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1.3);
+		opacity: 0;
+	}
+}

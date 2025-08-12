@@ -7,7 +7,11 @@
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet" />
 		<link rel="stylesheet" href="./css/styles.css" />
+
 		<!-- Scripts -->
 		<script
 			type="text/javascript"
@@ -43,7 +47,7 @@
 			.page {
 				background-size: calc((100vh * 2250) / 4000), 99vh;
 				filter: none !important;
-				pointer-events: none !important;
+				/* pointer-events: none !important; */
 				image-rendering: -webkit-optimize-contrast !important;
 				width: calc((100vh * 2250) / 4000) !important;
 				height: 100vh !important;
@@ -95,700 +99,6 @@
 				}
 			}
 
-			.boton {
-				position: absolute;
-				width: 10%;
-				height: 4%;
-				top: 94%;
-				left: 11%;
-				z-index: 1;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.boton1 {
-				position: absolute;
-				width: 5%;
-				height: 3%;
-				top: 94.7%;
-				left: 18.3%;
-				z-index: 1;
-				cursor: pointer;
-				pointer-events: auto !important;
-				background: green;
-				border-radius: 70px;
-			}
-			.boton2 {
-				position: absolute;
-				width: 5%;
-				height: 3%;
-				top: 94.6%;
-				left: 11.8%;
-				z-index: 1;
-				cursor: pointer;
-				border-radius: 70px;
-				background: red;
-				pointer-events: auto !important;
-			}
-
-			.mano {
-				position: absolute;
-				width: 100%;
-				/* height: 5%; */
-				top: 44.7%;
-				left: 0%;
-			}
-			.mano img {
-				width: 100%;
-				height: 100%;
-			}
-
-			/* bolas azules */
-			.ola1 {
-				position: absolute;
-				width: 24.8%;
-				top: 40.4%;
-				left: 37.6%;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.ola1 img {
-				width: 100%;
-				height: 100%;
-				animation: flotarSuave 3s ease-in-out infinite;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-
-			.ola2 {
-				position: absolute;
-				width: 24.8%;
-				top: 46.9%;
-				left: 60.6%;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.ola2 img {
-				width: 100%;
-				height: 100%;
-				animation: flotarSuave 2s ease-in-out infinite;
-			}
-
-			.ola3 {
-				position: absolute;
-				width: 24.8%;
-				top: 72.6%;
-				left: 50.1%;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.ola3 img {
-				width: 100%;
-				height: 100%;
-				animation: flotarSuave 3s ease-in-out infinite;
-			}
-
-			.ola4 {
-				position: absolute;
-				width: 24.8%;
-				top: 60.6%;
-				left: 66.1%;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.ola4 img {
-				width: 100%;
-				height: 100%;
-				animation: flotarSuave 2s ease-in-out infinite;
-			}
-
-			.ola5 {
-				position: absolute;
-				width: 24.8%;
-				top: 71.5%;
-				left: 24.9%;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.ola5 img {
-				width: 100%;
-				height: 100%;
-				animation: flotarSuave 3s ease-in-out infinite;
-			}
-
-			.ola6 {
-				position: absolute;
-				width: 24.8%;
-				top: 60.7%;
-				left: 9.3%;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.ola6 img {
-				width: 100%;
-				height: 100%;
-				animation: flotarSuave 2s ease-in-out infinite;
-			}
-
-			.ola7 {
-				position: absolute;
-				width: 24.8%;
-				top: 46.8%;
-				left: 14.7%;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.ola7 img {
-				width: 100%;
-				height: 100%;
-				animation: flotarSuave 3s ease-in-out infinite;
-			}
-
-			@keyframes flotarSuave {
-				0% {
-					transform: translateY(0);
-				}
-				50% {
-					transform: translateY(-10px);
-				}
-				100% {
-					transform: translateY(0);
-				}
-			}
-			/* bolas azul */
-			.amrillo1 {
-				position: absolute;
-				width: 21.8%;
-				top: 41%;
-				left: 39.5%;
-			}
-			.amrillo1 img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.amrillo2 {
-				position: absolute;
-				width: 21.8%;
-				top: 47.5%;
-				left: 62.5%;
-			}
-			.amrillo2 img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.amrillo3 {
-				position: absolute;
-				width: 21.8%;
-				top: 61.3%;
-				left: 67.4%;
-			}
-			.amrillo3 img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.amrillo4 {
-				position: absolute;
-				width: 21.8%;
-				top: 72.2%;
-				left: 51.9%;
-			}
-			.amrillo4 img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.amrillo5 {
-				position: absolute;
-				width: 21.8%;
-				left: 26.7%;
-				top: 72.1%;
-			}
-			.amrillo5 img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.amrillo6 {
-				position: absolute;
-				width: 21.8%;
-				left: 12.2%;
-				top: 61.3%;
-			}
-			.amrillo6 img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.amrillo7 {
-				position: absolute;
-				width: 21.8%;
-				left: 16.5%;
-				top: 47.4%;
-			}
-			.amrillo7 img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.adelante {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 18.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 10.8%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante1 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 21.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras1 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 14.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante2 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 22.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras2 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 14.8%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante3 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 23%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras3 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 15.8%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante4 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 23%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras4 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 15.8%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante5 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 20.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras5 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 94%;
-				left: 13.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante6 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 18.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras6 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 11.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante7 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 17.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras7 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 10.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante8 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 17.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras8 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 10.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante9 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 17.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras9 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 10.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante10 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 17.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras10 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 10.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante11 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 16.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras11 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 9.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante12 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 16.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras12 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 9.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante13 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 16.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras13 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 9.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante14 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 16.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras14 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 9.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante15 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 14.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras15 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 7.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante16 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 16.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras16 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 9.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante17 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 16.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras17 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 9.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante18 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 16.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras18 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 9.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.adelante19 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 16.3%;
-				z-index: 10;
-				cursor: pointer;
-				pointer-events: auto !important;
-			}
-			.atras19 {
-				position: absolute;
-				width: 6%;
-				height: 4%;
-				top: 93%;
-				left: 9.1%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.bombillo {
-				position: absolute;
-				width: 144.3%;
-				top: 65.2%;
-				left: -14.5%;
-				animation: flotarEnergetico 5s ease-in-out infinite;
-			}
-
-			.bombillo img {
-				width: 100%;
-				height: 100%;
-				animation: flotarConEnergia 4s ease-in-out infinite;
-			}
-
-			@keyframes flotarConEnergia {
-				0% {
-					transform: translateY(0) scale(1) rotate(0deg);
-					filter: drop-shadow(0 0 5px rgba(255, 255, 100, 0.3));
-				}
-				25% {
-					transform: translateY(-5px) scale(1.03) rotate(-1deg);
-					filter: drop-shadow(0 0 20px rgba(255, 255, 100, 0.7));
-				}
-				50% {
-					transform: translateY(5px) scale(0.98) rotate(1deg);
-					filter: drop-shadow(0 0 30px rgba(255, 255, 100, 0.9));
-				}
-				75% {
-					transform: translateY(-3px) scale(1.02) rotate(-0.5deg);
-					filter: drop-shadow(0 0 15px rgba(255, 255, 100, 0.6));
-				}
-				100% {
-					transform: translateY(0) scale(1) rotate(0deg);
-					filter: drop-shadow(0 0 5px rgba(255, 255, 100, 0.3));
-				}
-			}
-
 			.bloqueo-esquinas {
 				background-color: red;
 				position: absolute;
@@ -799,113 +109,187 @@
 				z-index: 1000;
 			}
 
-			.modal {
-				display: none;
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				top: 0;
-				left: 0;
-			}
-
-			.modal img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.modal .modal-adelante {
+			/* adelante e atras */
+			.adelante {
 				width: 7%;
 				height: 4%;
 				position: absolute;
 				bottom: 2%;
-				left: 20%;
+				left: 90%;
 				z-index: 10;
 				pointer-events: auto !important;
 				cursor: pointer;
 			}
-
-			.modal .modal-atras {
-				width: 7%;
-				height: 4%;
-				position: absolute;
-				bottom: 2%;
-				left: 12.4%;
-				z-index: 10;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.modal .modal-home3 {
-				position: absolute;
-				width: 7%;
-				height: 4.4%;
-				top: 93.8%;
-				left: 3.9%;
-				pointer-events: auto !important;
-				cursor: pointer;
-				z-index: 10;
-			}
-
-			.home {
-				position: absolute;
-				width: 7%;
-				height: 4.4%;
-				top: 95.2%;
-				left: 48.9%;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.home img {
-				width: 100%;
-				height: 100%;
-			}
-
 			.home1 {
-				position: absolute;
 				width: 7%;
-				height: 4.4%;
-				top: 95.2%;
-				left: 48.9%;
+				height: 4%;
+				position: absolute;
+				bottom: 3.3%;
+				left: 47%;
+				z-index: 10;
 				pointer-events: auto !important;
 				cursor: pointer;
 			}
 
-			.home1 img {
-				width: 100%;
-				height: 100%;
+			.atras1 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3%;
+				left: 37%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante1 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3.3%;
+				left: 57%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
 			}
 
 			.home2 {
-				position: absolute;
 				width: 7%;
-				height: 4.4%;
-				top: 95.2%;
-				right: 2%;
-				pointer-events: auto !important;
-				cursor: pointer;
-			}
-
-			.home2 img {
-				width: 100%;
-				height: 100%;
-			}
-
-			.mensaje {
+				height: 4%;
 				position: absolute;
-				width: 28.3%;
-				height: 16.5%;
-				top: 55.3%;
-				right: 35.9%;
+				bottom: 3.3%;
+				left: 47%;
+				z-index: 10;
 				pointer-events: auto !important;
 				cursor: pointer;
-				border-radius: 80px;
+			}
+
+			.atras2 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3%;
+				left: 37%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante2 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3.3%;
+				left: 57%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.home3 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3.3%;
+				left: 47%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.atras3 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3%;
+				left: 37%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante3 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3.3%;
+				left: 57%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.home4 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3.3%;
+				left: 47%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.atras4 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3%;
+				left: 37%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.adelante4 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 3.3%;
+				left: 57%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.home5 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 5.3%;
+				left: 47%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
+			}
+
+			.atras5 {
+				width: 7%;
+				height: 4%;
+				position: absolute;
+				bottom: 5%;
+				left: 1%;
+				z-index: 10;
+				pointer-events: auto !important;
+				cursor: pointer;
 			}
 		</style>
 	</head>
 
 	<body>
-		<div id="magazine" class="single-width">
+		<div id="loader" style="opacity: 1; transition: opacity 1s ease">
+			<div class="loader">
+				<div class="central-circle">
+					<img src="./images/loader.png" alt="Logo" />
+				</div>
+				<div class="orbiting-circle"></div>
+				<div class="pulse-ring"></div>
+			</div>
+		</div>
+		<div
+			id="magazine"
+			class="single-width"
+			style="opacity: 0; transition: opacity 1s ease">
 			<!-- portada -->
 			<div style="background-image: url(images/portada.jpg)">
 				<div class="cohete">
@@ -986,6 +370,8 @@
 				<div class="curva">
 					<img src="./images/curva.png" alt="" />
 				</div>
+
+				<div class="adelante"></div>
 			</div>
 
 			<!-- portada 1 -->
@@ -1050,6 +436,10 @@
 				<div class="raya5">
 					<img src="./images/raya6.png" alt="" />
 				</div>
+
+				<div class="atras1"></div>
+				<div class="home1"></div>
+				<div class="adelante1"></div>
 			</div>
 
 			<!-- portada 2 -->
@@ -1102,6 +492,10 @@
 				<div class="hoja1">
 					<img src="./images/hoja.png" alt="" />
 				</div>
+
+				<div class="atras2"></div>
+				<div class="home2"></div>
+				<div class="adelante2"></div>
 			</div>
 
 			<!-- portada 3 -->
@@ -1161,6 +555,10 @@
 				<div class="tuercas">
 					<img src="./images/tuercas.png" alt="Educación Online" />
 				</div>
+
+				<div class="atras3"></div>
+				<div class="home3"></div>
+				<div class="adelante3"></div>
 			</div>
 
 			<!-- portada 4 -->
@@ -1169,17 +567,14 @@
 					<img src="./images/marketin.png" alt="" />
 				</div>
 				<div class="doblez3d">
-					<img src="./images/digital.png" alt="Marketing Digital">
-				  </div>
+					<img src="./images/digital.png" alt="Marketing Digital" />
+				</div>
 				<div class="megust">
 					<img src="./images/megustaicon.webp" alt="" />
 				</div>
 				<div class="coherte2">
 					<span class="flash" aria-hidden="true"></span>
 					<img src="./images/cohete1.png" alt="Cohete" />
-				</div>
-				<div class="xora">
-					<img src="./images/corazon.gif" alt="" />
 				</div>
 				<div class="liena">
 					<img src="./images/likes.png" alt="" />
@@ -1190,15 +585,40 @@
 				<div class="curu">
 					<img src="./images/curu.png" alt="" />
 				</div>
-				<div class="fondocirc"></div>
+
+				<div class="atras4"></div>
+				<div class="home4"></div>
+				<div class="adelante4"></div>
 			</div>
 
 			<!-- portada 5 -->
 			<div style="background-image: url(images/imagen21.jpg)">
 				<div class="texto1">
-					<h1 class="type">¿Estás listo para construir <br> una comunicación <br>
-						saludable que hará feliz a <br> tu marca? </h1>
-				  </div>
+					<div class="type">
+						<p class="line" style="--chars: 27; --delay: 0ms">
+							¿Estás listo para
+							<b style="color: #f4a01f">construir</b>
+						</p>
+						<p class="line" style="--chars: 16; --delay: 1835ms">
+							una comunicación
+						</p>
+						<p class="line" style="--chars: 26; --delay: 3065ms">
+							saludable
+							<b style="color: #f4a01f">que hará feliz a</b>
+						</p>
+						<p class="line" style="--chars: 9; --delay: 4845ms">
+							tu marca?
+						</p>
+					</div>
+				</div>
+				<div class="cruva">
+					<img src="./images/cruva1.png" alt="" />
+				</div>
+				<div class="cruva1">
+					<img src="./images/azulfle.png" alt="" />
+				</div>
+				<div class="atras5"></div>
+				<div class="home5"></div>
 			</div>
 		</div>
 		<audio
@@ -1206,12 +626,5 @@
 			src="./images/siguiente-pagina-139418.mp3"></audio>
 
 		<script src="./js/magazine.js"></script>
-		<script>
-			// Calcula el número de caracteres reales para que los "steps" se ajusten bien
-			const el = document.getElementById('headline');
-			const chars = el.textContent.replace(/\s+/g,' ').trim().length;
-			el.style.setProperty('--chars', chars);
-		  </script>
 	</body>
 </html>
-
