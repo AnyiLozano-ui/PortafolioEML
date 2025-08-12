@@ -1310,8 +1310,6 @@
 	}
 }
 
-
-
 .hoja1 {
 	position: absolute;
 	width: 8.2%;
@@ -1585,22 +1583,29 @@
 	text-shadow: 0 0 3px black;
 	transform: rotate(345deg);
 }
+
 .camara1 .dot {
 	width: 10px;
 	height: 10px;
-	border-radius: 50%;
-	background: red;
-	animation: blink 1s infinite;
+	border-radius: 50%; /* ✅ asegura forma circular */
+	background: #66ff00;
+	display: inline-block;
+	overflow: hidden; /* ✅ recorta cualquier sobra interna */
+	animation: blinkLamp 1s steps(2, end) infinite;
+	will-change: opacity, box-shadow;
 }
-@keyframes blink {
+
+/* Animación de parpadeo con glow */
+@keyframes blinkLamp {
 	0%,
-	50%,
 	100% {
 		opacity: 1;
+		box-shadow: 0 0 4px rgba(255, 217, 0, 0.9),
+			0 0 8px rgba(255, 217, 0, 0.6), 0 0 12px rgba(255, 217, 0, 0.4);
 	}
-	25%,
-	75% {
+	50% {
 		opacity: 0.2;
+		box-shadow: none;
 	}
 }
 
@@ -2142,13 +2147,13 @@
 	text-align: center;
 }
 
-@media(min-width: 500px) and (max-width: 1024px) {
+@media (min-width: 500px) and (max-width: 1024px) {
 	.type {
 		font-size: clamp(22px, 3.5vw, 48px);
 	}
 }
 
-@media(min-width: 1025px) and (max-width: 1366px) {
+@media (min-width: 1025px) and (max-width: 1366px) {
 	.type {
 		font-size: clamp(18px, 0.5vw, 48px);
 	}
@@ -2229,69 +2234,57 @@
 	left: 82.3%;
 	z-index: 2;
 	overflow: hidden;
+	perspective: 1200px; /* para profundidad */
 }
 
 .cruva img {
 	width: 100%;
 	height: 100%;
 	display: block;
-	animation: waveMove 3s ease-in-out infinite;
-	filter: drop-shadow(0px 0px 8px rgba(255, 165, 0, 0.4));
+	transform-style: preserve-3d;
+	animation: tiltZoom 4s ease-in-out infinite;
+	filter: drop-shadow(0px 0px 10px rgba(255, 180, 0, 0.4));
 }
 
-/* Brillo que recorre la curva */
-.curva::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(
-		120deg,
-		transparent 0%,
-		rgba(255, 255, 255, 0.3) 50%,
-		transparent 100%
-	);
-	animation: shine 3.5s ease-in-out infinite;
-}
-
-/* Movimiento ondulante */
-@keyframes waveMove {
-	0%,
-	100% {
-		transform: translateY(0px) rotate(0.2deg);
+/* Efecto 3D sutil sin desplazar la posición */
+@keyframes tiltZoom {
+	0%, 100% {
+		transform: rotateY(0deg) rotateX(0deg) scale(1);
+	}
+	25% {
+		transform: rotateY(4deg) rotateX(2deg) scale(1.02);
 	}
 	50% {
-		transform: translateY(-6px) rotate(-0.2deg);
+		transform: rotateY(0deg) rotateX(0deg) scale(1);
+	}
+	75% {
+		transform: rotateY(-4deg) rotateX(-2deg) scale(1.02);
 	}
 }
 
-/* Recorrido del brillo */
-@keyframes shine {
-	0% {
-		left: -100%;
-	}
-	50% {
-		left: 100%;
-	}
-	100% {
-		left: 100%;
-	}
-}
 
-.cruva1 {
-	position: absolute;
-	width: 54%;
-	top: -9.3%;
-	left: -17.7%;
-	z-index: 2;
-}
-
-.cruva1 img {
-	width: 100%;
-	height: 100%;
-}
+.cruva1{
+	position:absolute;
+	width:54%;
+	top:-9.3%;
+	left:-17.7%;
+	z-index:2;
+	transform-origin: 60% 40%;
+  }
+  
+  .cruva1 img{width:100%;height:100%;display:block;}
+  
+  .wobble{
+	animation: floaty 7s ease-in-out infinite;
+	will-change: transform;
+  }
+  
+  @keyframes floaty{
+	0%,100%{ transform: translateY(0) rotate(0.2deg) scale(1); }
+	25%    { transform: translateY(-6px) rotate(-0.4deg) scale(1.003); }
+	50%    { transform: translateY(2px)  rotate(0.5deg)  scale(1.006); }
+	75%    { transform: translateY(-3px) rotate(-0.2deg) scale(1.002); }
+  }
 
 #loader {
 	position: fixed;
@@ -2391,3 +2384,213 @@
 		opacity: 0;
 	}
 }
+
+.loader-circle1 {
+	position: absolute;
+	/* width: 20%; */
+	left: 63.9%;
+	top: 62.6%;
+}
+
+.loader-circle1 img {
+	width: 100%;
+	height: 100%;
+}
+
+.loader-circle1 {
+	width: 13.4%;
+	height: auto;
+	background: url('./images/punticos@4x-8.png') no-repeat center center;
+	background-size: contain;
+	animation: rotateDots 6s linear infinite;
+}
+
+@keyframes rotateDots {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.treessenta1 {
+	position: absolute;
+	width: 19.5%;
+	left: 56.4%;
+	top: 63.2%;
+	animation: floatSide 6s ease-in-out infinite;
+}
+
+.treessenta1 img {
+	width: 100%;
+	height: 100%;
+}
+
+@keyframes floatSide {
+	0% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(5px);
+	}
+	50% {
+		transform: translateX(0);
+	}
+	75% {
+		transform: translateX(-5px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.cuadropunto {
+	position: absolute;
+	width: 4.5%;
+	left: 77.6%;
+	top: 4.6%;
+	overflow: hidden;
+}
+
+.cuadropunto img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	animation: waveDots 2s ease-in-out infinite;
+}
+
+/* Creamos la animación de onda vertical */
+@keyframes waveDots {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-4%);
+	}
+}
+
+/* Truco: en pseudo-elemento duplicamos y movemos con retardo */
+.cuadropunto.wave::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-image: url('./images/background1.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	animation: waveDotsOffset 2s ease-in-out infinite;
+}
+
+@keyframes waveDotsOffset {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(4%);
+	}
+}
+
+.usuario{
+	position:absolute;
+	width:78.1%;
+	left:-29.1%;
+	top:31.6%;
+	isolation:isolate;
+  }
+  
+  /* Base */
+  .usuario img{
+	width:100%; height:100%; display:block;
+	filter: drop-shadow(0 18px 28px rgba(0,0,0,.28));
+	animation: idleFloat 4s ease-in-out infinite;
+  }
+  
+  /* --- Capa CYAN desplazada (RGB split) --- */
+  .usuario::before{
+	content:""; position:absolute; inset:0; z-index:2;
+	background-image:url("./images/daniel.png");
+	background-size:100% 100%; background-repeat:no-repeat;
+	filter: hue-rotate(180deg) saturate(1.6) brightness(1.05);
+	opacity:.55; mix-blend-mode:screen;
+	transform:translate(0,0);
+	animation: glitchShift 2.2s steps(12) infinite;
+	/* recorta a la silueta */
+	-webkit-mask-image:url("./images/daniel.png"); mask-image:url("./images/daniel.png");
+	-webkit-mask-size:100% 100%; mask-size:100% 100%;
+	-webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  }
+  
+  /* --- Capa MAGENTA por “slices” (glitch) --- */
+  .usuario::after{
+	content:""; position:absolute; inset:0; z-index:3;
+	background-image:url("./images/daniel.png");
+	background-size:100% 100%; background-repeat:no-repeat;
+	filter: hue-rotate(300deg) saturate(1.7) brightness(1.05);
+	opacity:.45; mix-blend-mode:screen;
+	animation: sliceGlitch 2.6s steps(10) infinite;
+	-webkit-mask-image:url("./images/daniel.png"); mask-image:url("./images/daniel.png");
+	-webkit-mask-size:100% 100%; mask-size:100% 100%;
+	-webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  }
+  
+  /* --- Barrido holográfico (scan) SOLO dentro de la silueta --- */
+  .usuario .scan{
+	/* opcional: si prefieres tenerlo siempre, conviértelo en ::marker; aquí va como extra */
+  }
+  
+  /* Barrido con un pseudo-elemento del <img> usando :where para compatibilidad */
+  .usuario img::after{ content:none; } /* evitar warnings */
+  
+  /* Añade un overlay extra: */
+  .usuario > img + i{
+	position:absolute; inset:0; display:block; content:"";
+  }
+  
+  /* Truco: usa un pseudo sibling con ::before para el scan */
+  .usuario:has(img) i::before{
+	content:""; position:absolute; inset:0; z-index:4; pointer-events:none;
+	background:
+	  repeating-linear-gradient(0deg, rgba(255,255,255,.18) 0 2px, rgba(255,255,255,0) 2px 6px),
+	  radial-gradient(260px 260px at 50% -20%, rgba(0,255,255,.35), transparent 60%);
+	mix-blend-mode:soft-light; opacity:.7;
+	animation: scanMove 3.8s linear infinite;
+	-webkit-mask-image:url("./images/daniel.png"); mask-image:url("./images/daniel.png");
+	-webkit-mask-size:100% 100%; mask-size:100% 100%;
+	-webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  }
+  
+  /* Keyframes */
+  @keyframes idleFloat {
+	0%, 100% { transform: translateX(0) rotate(0deg); }
+	50%      { transform: translateX(6px) rotate(1deg); }
+  }
+  
+  @keyframes glitchShift{
+	0%   { transform:translate(0,0) }
+	20%  { transform:translate(2px,-1px) }
+	21%  { transform:translate(-3px,1px) }
+	22%  { transform:translate(3px,-2px) }
+	40%  { transform:translate(0,0) }
+	60%  { transform:translate(-2px,2px) }
+	61%  { transform:translate(2px,-1px) }
+	100% { transform:translate(0,0) }
+  }
+  
+  @keyframes sliceGlitch{
+	0%,100%{ clip-path: inset(0 0 0 0) }
+	10%    { clip-path: inset(5% 0 70% 0); transform:translate(-2px,0) }
+	11%    { clip-path: inset(8% 0 66% 0); transform:translate(2px,0) }
+	30%    { clip-path: inset(0 0 0 0); transform:translate(0,0) }
+	50%    { clip-path: inset(60% 0 20% 0); transform:translate(1px,0) }
+	51%    { clip-path: inset(62% 0 18% 0); transform:translate(-3px,0) }
+	70%    { clip-path: inset(0 0 0 0); transform:translate(0,0) }
+	85%    { clip-path: inset(25% 0 55% 0); transform:translate(3px,0) }
+  }
+  
+  @keyframes scanMove{
+	0%   { transform:translateY(14%) }
+	100% { transform:translateY(-14%) }
+  }
+  
