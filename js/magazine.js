@@ -146,7 +146,7 @@ $(document).ready(() => {
 			})
 		
 			$('.atras5').on('click', () => {
-				$('#magazine').turn('previous')
+				$('#magazine').turn('page', 5)
 			})
 		}
 	})
@@ -201,6 +201,25 @@ $(document).ready(() => {
 
 	$('.adelante4').on('click', () => {
 		$('#magazine').turn('next')
+	})
+
+	$('.raya1').on('click', () => {
+		$('#magazine').turn('page', 5)
+	})
+	$('.raya2').on('click', () => {
+		$('#magazine').turn('page', 5)
+	})
+	$('.raya3').on('click', () => {
+		$('#magazine').turn('page', 4)
+	})
+	$('.raya4').on('click', () => {
+		$('#magazine').turn('page', 4)
+	})
+	$('.raya5').on('click', () => {
+		$('#magazine').turn('page', 3)
+	})
+	$('.raya').on('click', () => {
+		$('#magazine').turn('page', 3)
 	})
 
 	
